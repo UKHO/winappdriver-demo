@@ -1,0 +1,23 @@
+﻿<Window x:Class="TestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestApp"
+        mc:Ignorable="d"
+        Title="Test Application" Width="400" FontSize="18" SizeToContent="Height" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF5E860"/>
+                <GradientStop Color="#FFAC69F0" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackPanel Margin="10,10,10,10">
+            <TextBox x:Name="InputBox" AutomationProperties.AutomationId="Input"></TextBox>
+            <Button Click="Button_Click">Press me</Button>
+            <TextBlock x:Name="ResultWindow" >Not pressed</TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
