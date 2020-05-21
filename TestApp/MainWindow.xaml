@@ -4,9 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestApp"
+        d:DataContext="{d:DesignInstance Type=local:MainWindowViewModel, IsDesignTimeCreatable=True}"
         mc:Ignorable="d"
         Title="Test Application" Width="400" FontSize="18" SizeToContent="Height" WindowStartupLocation="CenterScreen">
-
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -15,9 +18,9 @@
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel Margin="10,10,10,10">
-            <TextBox x:Name="InputBox" AutomationProperties.AutomationId="Input"></TextBox>
-            <Button Click="Button_Click">Press me</Button>
-            <TextBlock x:Name="ResultWindow" >Not pressed</TextBlock>
+            <TextBox x:Name="InputBox" AutomationProperties.AutomationId="Input" Text="{Binding Path=InputText, Mode=OneWayToSource}"/>
+            <Button Content="{Binding Path=ButtonText}" Command="{Binding Path=ButtonCommand}"/>
+            <TextBlock x:Name="ResultWindow" Text="{Binding Path=ResultText}"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -11,10 +11,5 @@ namespace TestApp
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ResultWindow.Text = $"Input was {InputBox.Text}";
-        }
     }
 }

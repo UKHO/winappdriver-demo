@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinAppDriverExample", "WinAppDriverExample\WinAppDriverExample.csproj", "{22B9E295-9CFF-4431-AF3D-3C68B54BA475}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinAppDriverExample", "WinAppDriverExample\WinAppDriverExample.csproj", "{22B9E295-9CFF-4431-AF3D-3C68B54BA475}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{66222AF1-F2D8-440B-BB8D-0803EFEB586A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.csproj", "{66222AF1-F2D8-440B-BB8D-0803EFEB586A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OtherTests", "OtherTests\OtherTests.csproj", "{3CE62564-FA48-45BD-84F5-7816D3B481A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{66222AF1-F2D8-440B-BB8D-0803EFEB586A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66222AF1-F2D8-440B-BB8D-0803EFEB586A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66222AF1-F2D8-440B-BB8D-0803EFEB586A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE62564-FA48-45BD-84F5-7816D3B481A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE62564-FA48-45BD-84F5-7816D3B481A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE62564-FA48-45BD-84F5-7816D3B481A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE62564-FA48-45BD-84F5-7816D3B481A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

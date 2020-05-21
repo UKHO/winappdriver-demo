@@ -6,3 +6,6 @@
 */bin
 */obj
 *.user
+*.ncrunchproject
+/_NCrunch*
+*.ncrunchsolution

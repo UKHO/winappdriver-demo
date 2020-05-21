@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="TestApp.v3.ncrunchproject" />
+  </ItemGroup>
+
 </Project>
