@@ -38,12 +38,13 @@ namespace WinAppDriverExample
 
             //you can use class name to find an element but try to avoid this when possible
             var button = _winDriver.FindElementByClassName("Button");
+            Assert.That(button.Text, Is.EqualTo("Press me"), "Button text is incorrect");
             button.Click();
 
             //you can also use FindElementByAccessibilityId for x:Name.
             //if AutomationProperties.AutomationId is also on the element then FindElementByAccessibilityId will expect that value instead
             var result = _winDriver.FindElementByAccessibilityId("ResultWindow");
-            Assert.That(result.Text, Is.EqualTo("Input was stuff"));
+            Assert.That(result.Text, Is.EqualTo("Input was stuff"), "Result text is incorrect");
         }
 
         private static string GetPathToApplicationUnderTest()
