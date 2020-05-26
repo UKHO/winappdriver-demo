@@ -16,13 +16,23 @@ Follow instructions on <https://github.com/microsoft/WinAppDriver> to get WinApp
 
 ### Inspect.exe
 
-[Inspect.exe](https://docs.microsoft.com/en-us/windows/win32/winauto/inspect-objects) gives access to the UIAccess (UIA) tree used by WinAppDriver to drive the application. It can be accessed by installing the Windows SDK (by modifying your Visual Studio features in the Visual Studio Installer) and navigating to `C:\Program Files (x86)\Windows Kits\10\bin\10.0.18362.0\x64\inspect.exe`.
+[Inspect.exe](https://docs.microsoft.com/en-us/windows/win32/winauto/inspect-objects) gives access to the UI Automation (UIA) tree used by WinAppDriver to drive the application. It can be accessed by installing the Windows SDK (by modifying your Visual Studio features in the Visual Studio Installer) and navigating to `C:\Program Files (x86)\Windows Kits\10\bin\10.0.18362.0\x64\inspect.exe`.
 
 Officially this is considered a legacy application and Microsoft recommend the use of [Accessibility Insights for Windows](https://accessibilityinsights.io/docs/en/windows/overview) instead.
 
 ### Accessibility Insights for Windows
 
-Stuff goes here
+[Accessibility Insights for Windows](https://accessibilityinsights.io/docs/en/windows/overview) not only allows access to the UIA tree in a more modern interface than Inspect.exe, it also provides a tool with which to scan a visible UI for common accessibilty violations.
+
+This tool is primarily designed for assessing a Windows application for user accessibility compliance and so there are a few differences to Inspect.exe
+
+* Navigation
+  * Like Inspect.exe, the application watches the cursor and updates the UIA tree to reflect what is currently being hovered upon.
+  * Press the pause button to stop watching the cursor.
+  * Children and siblings of the current element may not be shown in the navigation tree view. These can be navigated to by using keyboard shortcuts defined in the settings.
+
+* Details
+  * The properties shown can be configured and may not by default include properties important to UI automation such as th AutomationId.
 
 ## Tips, Common problems and Gotchas
 
