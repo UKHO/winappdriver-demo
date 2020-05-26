@@ -2,6 +2,8 @@
 
 [WinAppDriver](https://github.com/microsoft/WinAppDriver) is an application built and maintained by Microsoft which enables Appium to drive native Windows applications using a Selenium style interface.
 
+WinAppDriver is the Microsoft recommended approach to UI testing UWP, WPF, WinForms and MFC applications since the deprecation of CodedUI.
+
 This demo project shows how to set up a UI test using WinAppDriver and to run it in a pipeline.
 
 ## Using WinAppDriver
@@ -24,8 +26,10 @@ Stuff goes here
 
 ## Tips, Common problems and Gotchas
 
-The WinAppDriver team has undergone some turmoil and at the time of writing (May 2020) there are many open issues and outdated documentation. Regardless it appears that Microsoft does intend to support WinAppDriver and it is still their recommended approach to UI testing UWP, WPF, WinForms and MFC applications since the deprecation of CodedUI. With that in mind, here is some wisdom that we would like to share:
+The WinAppDriver team has undergone some turmoil and as a result at the time of writing (May 2020) there are many open issues and outdated documentation.
 
-* `DesiredCapabilities` is deprecated by Appium. Use `AppiumOptions` instead
-* Run anything that is accessing the UI as administrator. This includes WinAppDriver and Inspect.exe
+Here are some pointers that we've found missing or hard to find in the documentation:
+
 * WinAppDriver only supports Windows 10
+* Run anything that is accessing the UI as administrator. This includes WinAppDriver and Inspect.exe
+* `DesiredCapabilities` (frequently referenced in the documentation) is deprecated by Appium. Use `AppiumOptions` instead
