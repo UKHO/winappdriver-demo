@@ -32,7 +32,7 @@ This tool is primarily designed for assessing a Windows application for user acc
   * Children and siblings of the current element may not be shown in the navigation tree view. These can be navigated to by using keyboard shortcuts defined in the settings.
 
 * Details
-  * The properties shown can be configured and may not by default include properties important to UI automation such as th AutomationId.
+  * The properties shown can be configured and may not by default include properties important to UI automation such as the AutomationId.
 
 ## Tips, Common problems and Gotchas
 
