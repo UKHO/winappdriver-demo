@@ -1,0 +1,60 @@
+variables:
+    solution: '**/*.sln'
+    buildPlatform: 'Any CPU'
+    buildConfiguration: 'Release'
+
+stages:
+- stage: Build
+  pool:
+    vmImage: '$(buildAgent)'
+
+  jobs:
+  - job: Build
+    workspace:
+      clean: all
+
+    steps:
+    - task: NuGetToolInstaller@1
+
+    - task: NuGetCommand@2
+      inputs:
+        restoreSolution: '$(solution)'
+
+    - task: VSBuild@1
+      inputs:
+        solution: '$(solution)'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
+
+    - task: VSTest@2
+      inputs:
+        testSelector: 'testAssemblies'
+        testAssemblyVer2: '**\OtherTests.dll'
+        searchFolder: '$(System.DefaultWorkingDirectory)'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
+
+- stage: Run UI tests
+  dependsOn: Build
+#  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  pool:
+    vmImage: '$(uiTestAgent)'
+
+  jobs:
+  - job: RunWinAppDriverTests
+    workspace:
+     clean: all
+
+    steps:
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: 'start ''$(winAppDriverPath)'''
+
+    - task: VSTest@2
+      inputs:
+        testSelector: 'testAssemblies'
+        testAssemblyVer2: '**\WinAppDriverExample.dll'
+        searchFolder: '$(System.DefaultWorkingDirectory)'
+        uiTests: true
+        testRunTitle: 'WinAppDriverExample UI Tests'
