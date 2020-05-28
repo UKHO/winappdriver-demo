@@ -38,7 +38,7 @@ stages:
 
     - task: PublishBuildArtifacts@1
       inputs:
-        PathtoPublish: '**\WinAppDriverExample\bin\Release'
+        PathtoPublish: 'WinAppDriverExample\bin\Release'
         ArtifactName: 'uiTests'
         publishLocation: 'Container'
 
