@@ -64,7 +64,7 @@ stages:
       inputs:
         testSelector: 'testAssemblies'
         testAssemblyVer2: |
-          **\**\WinAppDriverExample.dll
+          **\**\**\WinAppDriverExample.dll
           !**\obj\**
         searchFolder: '$(System.DefaultWorkingDirectory)'
         uiTests: true
