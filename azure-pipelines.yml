@@ -54,6 +54,13 @@ stages:
      clean: all
 
     steps:
+    - task: DownloadPipelineArtifact@2
+      displayName: Download uiTests artifact from build
+      inputs:
+        buildType: 'current'
+        artifactName: 'uiTests'
+        targetPath: '$(Pipeline.Workspace)'
+
     - task: PowerShell@2
       displayName: Start WinAppDriver
       inputs:
@@ -64,9 +71,9 @@ stages:
       inputs:
         testSelector: 'testAssemblies'
         testAssemblyVer2: |
-          **\**\**\WinAppDriverExample.dll
+          **\WinAppDriverExample.dll
           !**\obj\**
-        searchFolder: '$(System.DefaultWorkingDirectory)'
+        searchFolder: '$(Pipeline.Workspace)'
         uiTests: true
         testRunTitle: 'WinAppDriverExample UI Tests'
 
