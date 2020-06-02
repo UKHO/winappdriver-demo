@@ -55,6 +55,7 @@ stages:
 
     steps:
     - task: PowerShell@2
+      displayName: Start WinAppDriver
       inputs:
         targetType: 'inline'
         script: 'start ''$(winAppDriverPath)'''
@@ -63,13 +64,14 @@ stages:
       inputs:
         testSelector: 'testAssemblies'
         testAssemblyVer2: |
-          **\*\WinAppDriverExample.dll
+          **\**\WinAppDriverExample.dll
           !**\obj\**
         searchFolder: '$(System.DefaultWorkingDirectory)'
         uiTests: true
         testRunTitle: 'WinAppDriverExample UI Tests'
 
     - task: PowerShell@2
+      displayName: Stop WinAppDriver
       inputs:
         targetType: 'inline'
         script: 'get-process "WinAppDriver" | stop-process -force'
