@@ -65,7 +65,7 @@ stages:
 
     steps:
     - task: DownloadPipelineArtifact@2
-      displayName: Download uiTests artifact from build
+      displayName: Download all artifacts from build
       inputs:
         buildType: 'current'
         targetPath: '$(Pipeline.Workspace)'
@@ -74,8 +74,7 @@ stages:
       displayName: 'Update appsettings for test to variables specified in the job'
       inputs:
         folderPath: '$(Pipeline.Workspace)\uiTests'
-        xmlTransformationRules: 
-        jsonTargetFiles: 'appsettings.json'
+        jsonTargetFiles: '**\appsettings.json'
 
     - task: PowerShell@2
       displayName: Start WinAppDriver
