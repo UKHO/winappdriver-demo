@@ -38,7 +38,13 @@ stages:
 
     - task: PublishBuildArtifacts@1
       inputs:
-        PathtoPublish: 'WinAppDriverExample\bin\Release'
+        PathtoPublish: 'TestApp\bin\$(buildConfiguration)'
+        ArtifactName: 'applicationToTest'
+        publishLocation: 'Container'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: 'WinAppDriverExample\bin\$(buildConfiguration)'
         ArtifactName: 'uiTests'
         publishLocation: 'Container'
 
@@ -50,6 +56,10 @@ stages:
 
   jobs:
   - job: Run_WinAppDriver_Tests
+    variables:
+      PathToApplicationUnderTest: '$(Pipeline.Workspace)\applicationToTest'
+      WinAppDriverUrl: 'http://127.0.0.1:4723'
+
     workspace:
      clean: all
 
@@ -58,8 +68,14 @@ stages:
       displayName: Download uiTests artifact from build
       inputs:
         buildType: 'current'
-        artifactName: 'uiTests'
         targetPath: '$(Pipeline.Workspace)'
+
+    - task: FileTransform@2
+      displayName: 'Update appsettings for test to variables specified in the job'
+      inputs:
+        folderPath: '$(Pipeline.Workspace)\uiTests'
+        xmlTransformationRules: 
+        jsonTargetFiles: 'appsettings.json'
 
     - task: PowerShell@2
       displayName: Start WinAppDriver
@@ -73,7 +89,7 @@ stages:
         testAssemblyVer2: |
           **\WinAppDriverExample.dll
           !**\obj\**
-        searchFolder: '$(Pipeline.Workspace)'
+        searchFolder: '$(Pipeline.Workspace)\uiTests'
         uiTests: true
         testRunTitle: 'WinAppDriverExample UI Tests'
 
