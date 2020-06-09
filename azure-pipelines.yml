@@ -83,6 +83,7 @@ stages:
         script: 'start ''$(winAppDriverPath)'''
 
     - task: VSTest@2
+      displayName: Run WinAppDriver UI tests
       inputs:
         testSelector: 'testAssemblies'
         testAssemblyVer2: |
@@ -94,6 +95,7 @@ stages:
 
     - task: PowerShell@2
       displayName: Stop WinAppDriver
+      condition: always()
       inputs:
         targetType: 'inline'
         script: 'get-process "WinAppDriver" | stop-process -force'
