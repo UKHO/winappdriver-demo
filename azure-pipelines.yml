@@ -57,7 +57,7 @@ stages:
   jobs:
   - job: Run_WinAppDriver_Tests
     variables:
-      PathToApplicationUnderTest: '$(Pipeline.Workspace)\applicationToTest'
+      PathToApplicationUnderTest: '$(Pipeline.Workspace)\applicationToTest\netcoreapp3.1\TestApp.exe'
       WinAppDriverUrl: 'http://127.0.0.1:4723'
 
     workspace:
