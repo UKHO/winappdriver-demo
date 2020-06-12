@@ -74,6 +74,7 @@ stages:
       displayName: 'Update appsettings for test to variables specified in the job'
       inputs:
         folderPath: '$(Pipeline.Workspace)\uiTests'
+        xmlTransformationRules: ''
         jsonTargetFiles: '**\appsettings.json'
 
     - task: Windows Application Driver@0
