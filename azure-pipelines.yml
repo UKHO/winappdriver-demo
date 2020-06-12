@@ -76,11 +76,9 @@ stages:
         folderPath: '$(Pipeline.Workspace)\uiTests'
         jsonTargetFiles: '**\appsettings.json'
 
-    - task: PowerShell@2
-      displayName: Start WinAppDriver
+    - task: Windows Application Driver@0
       inputs:
-        targetType: 'inline'
-        script: 'start ''$(winAppDriverPath)'''
+        OperationType: 'Start'
 
     - task: VSTest@2
       displayName: Run WinAppDriver UI tests
@@ -93,9 +91,6 @@ stages:
         uiTests: true
         testRunTitle: 'WinAppDriverExample UI Tests'
 
-    - task: PowerShell@2
-      displayName: Stop WinAppDriver
-      condition: always()
+    - task: Windows Application Driver@0
       inputs:
-        targetType: 'inline'
-        script: 'get-process "WinAppDriver" | stop-process -force'
+        OperationType: 'Stop'
