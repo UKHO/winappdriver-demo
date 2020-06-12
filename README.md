@@ -1,4 +1,5 @@
 # WinAppDriverExample
+[![Build Status](https://ukhogov.visualstudio.com/Pipelines/_apis/build/status/UKHO.winappdriver-demo?branchName=master)](https://ukhogov.visualstudio.com/Pipelines/_build/latest?definitionId=246&branchName=master)
 
 [WinAppDriver](https://github.com/microsoft/WinAppDriver) is an application built and maintained by Microsoft which enables Appium to drive native Windows applications using a Selenium style interface.
 
@@ -43,3 +44,5 @@ Here are some pointers that we've found missing or hard to find in the documenta
 * WinAppDriver only supports Windows 10
 * Run anything that is accessing the UI as administrator. This includes WinAppDriver and Inspect.exe
 * `DesiredCapabilities` (frequently referenced in the documentation) is deprecated by Appium. Use `AppiumOptions` instead
+* Use the [WinAppDriver](https://marketplace.visualstudio.com/items?itemName=WinAppDriver.winappdriver-pipelines-task) task to start/stop WinAppDriver when running in a CI pipeline. Attempting to replicate using powershell can lead to unexpected issues
+* Not all commands supported by Appium are supported by WinAppDriver. Here is a list of the supported APIs - <https://github.com/microsoft/WinAppDriver/blob/master/Docs/SupportedAPIs.md>
