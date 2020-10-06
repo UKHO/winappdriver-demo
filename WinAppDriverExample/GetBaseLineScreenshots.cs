@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 using OpenQA.Selenium.Appium;
@@ -22,6 +23,24 @@ namespace WinAppDriverExample
                 .Build();
         }
 
+        public static string BaselineScreenshotDirectory
+        {
+            get
+            {
+                var directory = new DirectoryInfo(Directory.GetCurrentDirectory());
+                while (true)
+                {
+                    if (directory.GetDirectories("BaselineScreenshots").Any())
+                        return directory.GetDirectories("BaselineScreenshots").Single().FullName;
+
+                    if (directory.Parent == null)
+                        return null;
+
+                    directory = directory.Parent;
+                }
+            }
+        }
+
         [SetUp]
         public void SetUpAppiumAndWinAppDriver()
         {
@@ -41,9 +60,9 @@ namespace WinAppDriverExample
         [Test]
         public void GetStartupScreenBaselineScreenshot()
         {
-            var baselineScreenshotDirectory = Directory.CreateDirectory(@"C:\Dev\WinAppDriverExample\WinAppDriverExample\BaselineScreenshots");
+            var baselineScreenshotDirectory = BaselineScreenshotDirectory;
 
-            File.WriteAllBytes(Path.Combine(baselineScreenshotDirectory.FullName, "StartupScreen.jpg"),
+            File.WriteAllBytes(Path.Combine(baselineScreenshotDirectory, "StartupScreen.jpg"),
                 _winDriver.GetScreenshot().AsByteArray);
         }
     }
