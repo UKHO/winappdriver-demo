@@ -41,7 +41,7 @@ namespace WinAppDriverExample
         [Test]
         public void GetStartupScreenBaselineScreenshot()
         {
-            var baselineScreenshotDirectory = Directory.CreateDirectory(@"C:\Dev\WinAppDriverExample\BaselineScreenshots");
+            var baselineScreenshotDirectory = Directory.CreateDirectory(@"C:\Dev\WinAppDriverExample\WinAppDriverExample\BaselineScreenshots");
 
             File.WriteAllBytes(Path.Combine(baselineScreenshotDirectory.FullName, "StartupScreen.jpg"),
                 _winDriver.GetScreenshot().AsByteArray);
