@@ -54,15 +54,13 @@ namespace WinAppDriverExample
         [TearDown]
         public void TearDown()
         {
-            _winDriver.Quit();
+            _winDriver?.Quit();
         }
 
         [Test]
         public void GetStartupScreenBaselineScreenshot()
         {
-            var baselineScreenshotDirectory = BaselineScreenshotDirectory;
-
-            File.WriteAllBytes(Path.Combine(baselineScreenshotDirectory, "StartupScreen.jpg"),
+            File.WriteAllBytes(Path.Combine(BaselineScreenshotDirectory, "StartupScreen.jpg"),
                 _winDriver.GetScreenshot().AsByteArray);
         }
     }
