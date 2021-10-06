@@ -1,5 +1,5 @@
 # WinAppDriverExample
-[![Build Status](https://ukhogov.visualstudio.com/Pipelines/_apis/build/status/UKHO.winappdriver-demo?branchName=master)](https://ukhogov.visualstudio.com/Pipelines/_build/latest?definitionId=246&branchName=master)
+[![Build Status](https://dev.azure.com/ukhogov/Pipelines/_apis/build/status/UKHO.winappdriver-demo?branchName=main)](https://dev.azure.com/ukhogov/Pipelines/_build/latest?definitionId=246&branchName=main)
 
 [WinAppDriver](https://github.com/microsoft/WinAppDriver) is an application built and maintained by Microsoft which enables Appium to drive native Windows applications using a Selenium style interface.
 
