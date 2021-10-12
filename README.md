@@ -35,6 +35,23 @@ This tool is primarily designed for assessing a Windows application for user acc
 * Details
   * The properties shown can be configured and may not by default include properties important to UI automation such as the AutomationId.
 
+
+## Supported Locators to Find UI Elements
+
+(Copied from https://github.com/microsoft/WinAppDriver/blob/master/Docs/AuthoringTestScripts.md)
+
+Windows Application Driver supports various locators to find UI element in the application session. The table below shows all supported locator strategies with their corresponding UI element attributes shown in **inspect.exe**.
+
+| Client API                   	| Locator Strategy 	| Matched Attribute in inspect.exe       	| Example      	|
+|------------------------------	|------------------	|----------------------------------------	|--------------	|
+| FindElementByAccessibilityId 	| accessibility id 	| AutomationId                           	| AppNameTitle 	|
+| FindElementByClassName       	| class name       	| ClassName                              	| TextBlock    	|
+| FindElementById              	| id               	| RuntimeId (decimal)                    	| 42.333896.3.1	|
+| FindElementByName            	| name             	| Name                                   	| Calculator   	|
+| FindElementByTagName         	| tag name         	| LocalizedControlType (upper camel case)	| Text         	|
+| FindElementByXPath           	| xpath            	| Any                                    	| //Button[0]  	|
+
+
 ## Tips, Common problems and Gotchas
 
 The WinAppDriver team has undergone some turmoil and as a result at the time of writing (May 2020) there are many open issues and outdated documentation.
